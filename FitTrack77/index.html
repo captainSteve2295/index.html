@@ -1,0 +1,84 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="theme-color" content="#176b52">
+<meta name="description" content="Personal weight-loss planner with meals, workouts and progress tracking.">
+<link rel="manifest" href="manifest.webmanifest">
+<link rel="icon" href="icon.svg" type="image/svg+xml">
+<title>FitTrack 77</title>
+<style>
+:root{--green:#176b52;--green2:#e2f4eb;--ink:#18332b;--muted:#6d8078;--bg:#f5f8f6;--card:#fff;--line:#e2eae5;--orange:#f4a340}
+*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--ink);font:15px/1.45 system-ui,-apple-system,Segoe UI,Roboto,sans-serif}button,input,select{font:inherit}button{cursor:pointer}.app{max-width:760px;margin:auto;min-height:100dvh;padding-bottom:84px}.top{background:linear-gradient(135deg,#145d49,#228667);color:white;padding:24px 18px 22px;border-radius:0 0 25px 25px}.topline{display:flex;align-items:center;justify-content:space-between;gap:12px}.brand{font-size:21px;font-weight:850;letter-spacing:-.5px}.tag{font-size:12px;opacity:.85}.hero{margin-top:20px;display:grid;grid-template-columns:1.2fr .8fr;gap:12px;align-items:center}.hero h1{font-size:28px;line-height:1.12;margin:5px 0 8px}.hero p{margin:0;color:#e0f5ec;font-size:13px}.weightbubble{background:#ffffff1c;border:1px solid #ffffff40;border-radius:18px;padding:14px;text-align:center}.weightbubble strong{display:block;font-size:30px}.weightbubble span{font-size:12px;color:#e0f5ec}.progress{height:7px;border-radius:20px;background:#ffffff40;margin-top:12px;overflow:hidden}.progress>div{height:100%;background:#f8c66c;border-radius:20px;width:0}.tabs{display:flex;gap:8px;overflow:auto;padding:13px 14px 4px;position:sticky;top:0;background:var(--bg);z-index:5}.tab{border:1px solid var(--line);border-radius:22px;padding:9px 14px;background:white;color:var(--muted);white-space:nowrap;font-weight:700;font-size:13px}.tab.active{background:var(--green);color:white;border-color:var(--green)}main{padding:12px 14px}.section{display:none}.section.active{display:block}.sectionhead{display:flex;justify-content:space-between;align-items:end;gap:10px;margin:8px 0 13px}.sectionhead h2{font-size:21px;margin:0}.muted{color:var(--muted);font-size:13px}.grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:11px}.card{background:var(--card);border:1px solid var(--line);border-radius:18px;padding:15px;margin-bottom:11px;box-shadow:0 3px 12px #123b2207}.metric{font-size:25px;font-weight:850;letter-spacing:-.5px}.metriclabel{font-size:12px;color:var(--muted)}.icon{width:38px;height:38px;display:grid;place-items:center;border-radius:13px;background:var(--green2);font-size:20px;margin-bottom:9px}.card h3{margin:0 0 5px;font-size:16px}.card p{margin:4px 0}.pill{display:inline-block;background:var(--green2);color:var(--green);border-radius:20px;padding:4px 9px;font-size:11px;font-weight:800}.meal{display:grid;grid-template-columns:65px 1fr;gap:12px;padding:13px 0;border-bottom:1px solid var(--line)}.meal:last-child{border:0}.time{font-size:12px;color:var(--green);font-weight:800}.meal h3{margin:0;font-size:15px}.meal p{margin:4px 0;color:var(--muted);font-size:13px}.meal .kcal{font-size:12px;font-weight:700;color:#a56716}.row{display:flex;gap:9px;align-items:center}.row>*{min-width:0}.btn{background:var(--green);border:0;color:white;padding:11px 14px;border-radius:12px;font-weight:800}.btn.secondary{background:var(--green2);color:var(--green)}.btn.small{padding:8px 10px;font-size:12px}.field{width:100%;border:1px solid var(--line);border-radius:11px;padding:11px;background:#fff;color:var(--ink);margin:5px 0 10px}.label{font-size:12px;font-weight:800;color:var(--muted);display:block;margin-top:8px}.checkrow{display:flex;gap:10px;align-items:flex-start;padding:12px 0;border-bottom:1px solid var(--line)}.checkrow:last-child{border:0}.checkrow input{width:19px;height:19px;accent-color:var(--green);margin-top:2px}.checkrow strong{display:block;font-size:14px}.checkrow small{display:block;color:var(--muted);margin-top:3px}.dayhead{display:flex;align-items:center;justify-content:space-between;margin-bottom:8px}.notice{background:#fff5e5;border:1px solid #f3dfbd;border-radius:14px;padding:12px;font-size:12px;color:#76511d}.empty{text-align:center;padding:20px;color:var(--muted)}.bottom{position:fixed;bottom:0;left:0;right:0;background:#ffffffed;backdrop-filter:blur(12px);border-top:1px solid var(--line);padding:10px max(14px,env(safe-area-inset-right)) calc(10px + env(safe-area-inset-bottom));display:flex;justify-content:center;z-index:10}.bottominner{width:min(730px,100%);display:flex;justify-content:space-around}.navitem{border:0;background:transparent;color:var(--muted);font-size:11px;font-weight:700;display:flex;flex-direction:column;align-items:center;gap:3px}.navitem span{font-size:20px}.navitem.active{color:var(--green)}.footer{text-align:center;color:var(--muted);font-size:11px;padding:14px}.chart{display:flex;align-items:end;gap:8px;height:100px;padding-top:10px}.barwrap{flex:1;text-align:center;font-size:10px;color:var(--muted)}.bar{background:#a7d9c2;border-radius:7px 7px 2px 2px;min-height:4px;width:100%;margin-bottom:5px}.bar.latest{background:var(--green)}.delete{color:#a53d30;background:transparent;border:0;font-size:12px}.twofields{display:grid;grid-template-columns:1fr 1fr;gap:10px}@media(min-width:600px){.top{margin-top:12px;border-radius:25px}.app{padding-left:12px;padding-right:12px}.tabs{border-radius:15px}}@media(max-width:390px){.hero h1{font-size:24px}.grid{gap:8px}.card{padding:12px}.weightbubble strong{font-size:26px}}
+</style>
+</head>
+<body>
+<div class="app">
+<header class="top">
+ <div class="topline"><div><div class="brand">🌿 FitTrack 77</div><div class="tag">Small habits. Stronger you.</div></div><span class="pill" style="background:#ffffff24;color:white">YOUR PLAN</span></div>
+ <div class="hero"><div><div class="tag">YOUR WEIGHT JOURNEY</div><h1 id="greeting">Let’s build healthy habits.</h1><p>Built around your 9 AM–5 PM workday.</p></div><div class="weightbubble"><span>CURRENT WEIGHT</span><strong id="heroWeight">77.0</strong><span>kg</span><div class="progress"><div id="progressFill"></div></div><span id="progressText">Goal: 65 kg</span></div></div>
+</header>
+<div class="tabs" role="tablist">
+ <button class="tab active" data-tab="home">Overview</button><button class="tab" data-tab="diet">Diet plan</button><button class="tab" data-tab="workout">Workout</button><button class="tab" data-tab="progress">Progress</button><button class="tab" data-tab="profile">My profile</button>
+</div>
+<main>
+<section id="home" class="section active">
+ <div class="sectionhead"><div><h2>Today at a glance</h2><div class="muted" id="todayDate"></div></div><span class="pill">Beginner plan</span></div>
+ <div class="grid">
+  <div class="card"><div class="icon">🔥</div><div class="metric">1,700–1,900</div><div class="metriclabel">Daily calorie starting range</div></div>
+  <div class="card"><div class="icon">🍗</div><div class="metric">90–110 g</div><div class="metriclabel">Suggested daily protein</div></div>
+  <div class="card"><div class="icon">🚶</div><div class="metric">150 min</div><div class="metriclabel">Weekly activity goal to build toward</div></div>
+  <div class="card"><div class="icon">😴</div><div class="metric">7–9 hrs</div><div class="metriclabel">Sleep goal</div></div>
+ </div>
+ <div class="card"><div class="sectionhead"><div><h2>Today's routine</h2><div class="muted">Check off tasks as you go</div></div><span class="pill" id="routineCount">0/7</span></div><div id="routineList"></div></div>
+ <div class="card"><h3>🎯 Your milestones</h3><div class="row" style="justify-content:space-between;margin-top:12px"><span>First milestone</span><strong>72 kg</strong></div><div class="row" style="justify-content:space-between;margin-top:8px"><span>Next milestone</span><strong>68 kg</strong></div><div class="row" style="justify-content:space-between;margin-top:8px"><span>Final target</span><strong id="targetLabel">60–65 kg</strong></div></div>
+ <div class="notice">Health note: calorie needs vary by sex, activity and health. This is a starting estimate, not medical advice. Avoid crash diets; adjust based on 2–3 weeks of trends and how you feel.</div>
+</section>
+<section id="diet" class="section">
+ <div class="sectionhead"><div><h2>Daily meal plan</h2><div class="muted">Tamil Nadu foods • practical portions</div></div></div>
+ <div class="card"><div class="row" style="justify-content:space-between"><div><div class="metric">~1,700–1,900</div><div class="metriclabel">estimated kcal/day</div></div><div><div class="metric">90–110 g</div><div class="metriclabel">protein target</div></div></div><p class="muted" style="margin-top:12px">Actual nutrition varies with recipes, oil and serving size. Choose one option per meal and avoid automatically adding every alternative.</p></div>
+ <div class="card" id="mealList"></div>
+ <div class="card"><h3>🌾 Cereals & millets rotation</h3><div class="muted" style="margin:4px 0 12px">Rice is allowed. Portion size and the whole meal matter more than choosing a “magic” grain.</div><div id="grainList"></div></div>
+ <div class="card"><h3>🍳 Protein quick guide</h3><div id="proteinList"></div></div>
+ <div class="notice">If you have a medical condition, a history of disordered eating, or take medication affecting weight or appetite, get advice from a qualified clinician before changing your diet substantially.</div>
+</section>
+<section id="workout" class="section">
+ <div class="sectionhead"><div><h2>Workout plan</h2><div class="muted">Start gently; progress gradually</div></div><span class="pill" id="workoutCount">0/7 days</span></div>
+ <div class="card"><div id="weeklyWorkout"></div></div>
+ <div class="card"><h3>🏠 10–15 minute strength routine</h3><p class="muted">Start with 1–2 rounds, Monday, Wednesday and Friday.</p><div id="strengthList"></div></div>
+ <div class="card"><h3>💻 Office movement</h3><div class="checkrow"><input type="checkbox" id="officeMove"><div><strong>Move for 2–5 minutes each hour</strong><small>Stand, walk or stretch when work allows. Try a 10-minute walk at lunch.</small></div></div></div>
+ <div class="notice">Stop exercising if you experience chest pain, faintness or unusual shortness of breath. If you have an injury or medical limitation, seek tailored advice.</div>
+</section>
+<section id="progress" class="section">
+ <div class="sectionhead"><div><h2>Weight progress</h2><div class="muted">Log under similar conditions, preferably in the morning.</div></div></div>
+ <div class="grid">
+  <div class="card"><div class="metric" id="lossMetric">0.0 kg</div><div class="metriclabel">Change from starting weight</div></div>
+  <div class="card"><div class="metric" id="remainingMetric">12.0 kg</div><div class="metriclabel">To your selected target</div></div>
+ </div>
+ <div class="card"><h3>Log today's weight</h3><label class="label" for="weightInput">Weight in kilograms</label><input class="field" id="weightInput" type="number" inputmode="decimal" min="30" max="300" step="0.1" placeholder="e.g. 76.8"><button class="btn" id="saveWeight">Save weight</button><p class="muted" id="weightMessage" aria-live="polite"></p></div>
+ <div class="card"><h3>Recent entries</h3><div id="weightHistory"></div></div>
+ <div class="card"><h3>Progress chart</h3><div class="chart" id="weightChart"></div><div class="muted">Bars show recent recorded weights relative to each other.</div></div>
+ <button class="btn secondary" id="exportData">Export my data (JSON)</button>
+</section>
+<section id="profile" class="section">
+ <div class="sectionhead"><div><h2>My profile</h2><div class="muted">Personalize your starting plan</div></div></div>
+ <div class="card">
+  <label class="label" for="nameInput">Name (optional)</label><input class="field" id="nameInput" placeholder="Your name">
+  <div class="twofields"><div><label class="label" for="ageInput">Age</label><input class="field" id="ageInput" type="number" min="18" max="100" value="21"></div><div><label class="label" for="sexInput">Sex (for calorie estimate)</label><select class="field" id="sexInput"><option value="unspecified">Prefer not to say</option><option value="male">Male</option><option value="female">Female</option></select></div></div>
+  <div class="twofields"><div><label class="label" for="heightInput">Height (cm)</label><input class="field" id="heightInput" type="number" value="166"></div><div><label class="label" for="startInput">Starting weight (kg)</label><input class="field" id="startInput" type="number" value="77" step=".1"></div></div>
+  <div class="twofields"><div><label class="label" for="goalInput">Goal weight (kg)</label><select class="field" id="goalInput"><option value="60">60 kg</option><option value="62.5">62.5 kg</option><option value="65" selected>65 kg</option></select></div><div><label class="label" for="activityInput">Activity level</label><select class="field" id="activityInput"><option value="sedentary">Mostly sitting</option><option value="light">Some walking</option><option value="moderate">Active most days</option></select></div></div>
+  <div class="muted">Job schedule: 9 AM–5 PM • Diet preference: non-vegetarian • Food style: Tamil Nadu / Indian.</div>
+  <button class="btn" id="saveProfile" style="margin-top:14px">Save profile</button><p class="muted" id="profileMessage" aria-live="polite"></p>
+ </div>
+ <div class="card"><h3>Privacy & app data</h3><p class="muted">Your logs are stored on this device in your browser. They are not sent to a server. Clearing browser data may erase them, so export a backup periodically.</p><button class="btn secondary" id="resetData">Reset all app data</button></div>
+ <div class="footer">FitTrack 77 • Wellness support, not a medical diagnosis.</div>
+</section>
+</main>
+</div>
+<nav class="bottom"><div class="bottominner">
+<button class="navitem active" data-tab="home"><span>⌂</span>Home</button><button class="navitem" data-tab="diet"><span>🥗</span>Diet</button><button class="navitem" data-tab="workout"><span>🏃</span>Workout</button><button class="navitem" data-tab="progress"><span>📈</span>Progress</button><button class="navitem" data-tab="profile"><span>⚙️</span>Profile</button>
+</div></nav>
+<script src="app.js"></script>
+</body>
+</html>
